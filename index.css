@@ -1,0 +1,570 @@
+* {
+    margin: 0 auto;
+    max-width: 900px;
+    --image-1: url("./cube images/creator life.png");
+    --image-2: url("./cube images/diamond.png");
+    --image-3: url("./cube images/Flexboxcard.jpg");
+    --image-4: url("./cube images/leadstrackerextension.jpg");
+    --image-5: url("./cube images/listapp.jpg");
+    --image-6: url("./cube images/RainbowBBQchicken.jpg");
+}
+
+/* =============
+     LAYOUT
+==============*/
+
+body {
+    display: grid;
+    grid-template-areas:
+        "cube name margin"
+        "cube name margin"
+        "intro intro margin"
+        "main1 main2 margin"
+        "main3 main4 margin"
+        "main5 main6 margin"
+        "main7 main8 margin"
+        "soft hard margin"
+        "table table margin"        
+        "bottom bottom margin"
+        "copy copy copy";
+    background: black;
+    color: white;
+    column-gap: 2vw;
+    row-gap: 2vh;
+    column-gap: 1vw;
+    
+    --angle: 0deg;
+	border: .2em solid;
+	border-image: conic-gradient(from var(--angle),  lime, aqua, blue, magenta, lime) 1;
+    padding: 1em 2em;
+    margin-right:25%
+    margin-top: 10%;
+    }
+
+.intro {
+    grid-area: intro;
+    line-height: 1.6em;
+    color: rgb(123, 255, 226);
+    margin-bottom: 1.5em;
+    font-family: "Maven Pro", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 2em;
+    display: flex;
+    flex-direction: column;
+    border-radius: 25px;
+    box-shadow: 0 0 15px 10px rgb(37, 20, 103);
+    border-top: 3px solid rgb(99, 0, 106);
+    border-bottom: 3px solid rgb(99, 0, 106);
+}
+
+.intro > p {
+    text-indent: 2em;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    line-height: 1.3rem;
+    font-size: .9em;
+}
+
+.special {
+    padding: 20px;
+    color: black;
+    margin-left: 20%
+}
+
+.special-box {
+    background-color: #0aa0a0;
+    color: black;
+    margin: 20px;
+    border-radius: 50px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+}
+
+
+//fun radio buttons//
+
+
+@keyframes flashButton {
+    0% { transform: scale(1);
+        background: #FF00F0;
+         }
+    50% { transform: scale(1.3);
+         background: #00BDFF;
+         }
+    100% { transform: scale(1);
+        background: #00FFD8;
+        };
+} 
+
+input[type="radio"] {
+    content:"";
+    appearance: none;
+    height: 1.25em;
+    width: 1.25em;
+    border: solid 1px #ccc;
+    border-radius: 50%;
+    margin-right: 0.5em;
+    box-shadow: 0px 0px 10px brown;
+    transition: box-shadow 1s ease;
+    background-image: radial-gradient(white, #E7E7E7, #878787);
+    font: inherit;
+  }
+
+input[type="radio"]:checked, 
+input[type="radio"]:focus,
+input[type="radio"]:active,{
+    box-shadow: 0 0 1em 0 rgba(10, 150, 255, 0.75);
+    border-color: currentColor;
+    }
+
+input[type="radio"]:hover {
+    animation: flashButton 1s infinite;  
+    background: radial-gradient(0.75em circle at center, purple 50%, transparent 40%);
+    box-shadow: 0 0 3em 5px rgba(0, 0, 255, 1);
+    border: 2px solid;
+  }
+
+.radio-button:active {
+    animation: flashButton 1s infinite;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(1turn);
+    }
+ }
+
+//little display boxes//
+
+.subjects {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: .5em;
+    margin-top: .5em;
+    font-family: "Maven Pro", sans-serif;
+    font-optical-sizing: auto;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5em;
+    padding-bottom: 10px;
+    font-family: "Maven Pro", sans-serif;
+    font-optical-sizing: auto;    
+    padding-right: 10px;
+    border-radius: 25px;
+}
+
+/* =============
+    TOP
+==============*/
+
+.person {
+    grid-area: name;
+    align-self: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2em;   
+}
+
+@keyframes rotate {
+	to {
+		--angle: 360deg;
+	}
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.person::after {
+    content:"";
+    position: relative;
+    border: 5px solid black;
+    border-radius: 25px;
+    z-index: -1;
+}
+
+.name {
+    letter-spacing: .2rem;
+    opacity: .9;
+    border-top: 2px solid;
+    border-image: conic-gradient(from var(--angle),  lime, aqua, blue, magenta, lime) 1;
+    animation: 10s rotate linear infinite;
+    padding-top: .5em;	
+    padding-bottom: 10em;
+}
+
+.subtitle {
+    opacity: .7;
+    border-bottom: 2px solid;
+    border-image: conic-gradient(from var(--angle),  lime, aqua, blue, magenta, lime) 1;
+	animation: 10s rotate linear infinite;
+    padding-bottom: 1em;
+}
+
+.person > p {
+    line-height: 1.5rem;
+    opacity: .7;
+}
+.tiny-bulb {
+    display: flex;
+    background-image: url(lightbulbtiny.png), radial-gradient(transparent,white);
+    background-size: cover;
+    background-position: center;
+    height: 50px;
+    width: 50px;
+    opacity: .8;
+    border-radius: 50px;
+    padding: 8px;
+    margin-top: 1em;
+}
+
+.tiny-bulb:hover {
+       box-shadow: 0 0 10px 3px white;
+}
+
+.intro-title {
+    padding-bottom: 1em;
+}
+.about-me {
+    display: flex;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    letter-spacing: .2rem;
+    font-family: auto;
+    justify-content: center;
+}
+
+.shadow {
+    display: flex;
+    box-shadow: 0 0 50px 15px black inset, 0 0 30px rgb(76, 2, 250);
+    background-image: url("face.png");
+    background-size: cover;
+    background-position: center;
+    height: 14em;
+    width: 14em;
+    margin-top:10em;
+    margin-bottom: 2em;
+    border-radius: 50px;
+    border-top: 3px solid rgb(99, 0, 106);
+    border-bottom: 3px solid rgb(99, 0, 106);
+    position: fixed;
+    right: 15%;
+    top:-2%;
+    animation: rotate2 1s linear infinite;
+    animation-play-state: paused;
+    animation-delay: calc(var(--scroll) * -1s);
+}
+
+@keyframes rotate2 {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.shadow::after {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-image: linear-gradient(to bottom, rgb(221, 0, 255),blue);
+    background-size: cover;
+    mix-blend-mode:color-dodge;
+    border-radius: 50px;
+    opacity: 50%;
+}
+
+@keyframes rotate3 {
+    to {
+      transform: rotate(-360deg);
+    }
+  }
+
+.follow {
+    margin-top: 125px;
+    animation: rotate3 1s linear infinite;
+    animation-play-state: paused;
+    animation-delay: calc(var(--scroll) * -1s);
+}
+
+/* =============
+   SUBJECTS
+==============*/
+
+.education {
+    grid-area: main1;
+    border-top: 1px solid rgb(0, 0, 221);
+    border-left: 1px solid rgb(0, 0, 221);
+    color:rgb(165, 165, 249)
+}
+
+.experience {
+    grid-area: main4;
+    border-top: 1px solid  rgb(143, 0, 220);
+    border-right: 1px solid  rgb(143, 0, 220);
+    color: rgb(213, 134, 255)
+}
+
+.projects {
+    grid-area: main5;
+    border-bottom: 1px solid rgb(0, 255, 200);
+    border-left: 1px solid rgb(0, 255, 200);
+    color: rgb(123, 255, 226);
+}
+
+.entreprenuer {
+    grid-area: main8;
+    border-right: 1px solid rgb(208, 0, 223);
+    border-bottom: 1px solid rgb(208, 0, 223);
+    color: rgb(248, 157, 255)
+}
+
+ul {
+    list-style-image: radial-gradient(rgb(208, 0, 223), transparent);
+    list-style-position: inside;
+    margin-left: 0;
+}
+ 
+li::marker {
+    font-size: 1.5em;
+}
+
+/*=============
+  BOTTOM
+=============*/
+
+footer {
+    grid-area: bottom;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    font-family: "Maven Pro", sans-serif;
+    margin: 0;
+    border-bottom: 1px solid rgb(99, 0, 106);
+    border-top: 1px solid rgb(99, 0, 106);
+}
+
+a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: blueviolet;
+    padding: .5em;
+    margin: 1em;
+}
+
+.copyright {
+    grid-area: copy;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: .6;
+    padding-top: 2em;
+    grid-column: 1/-1;
+    padding-bottom: 2em; 
+}
+
+.lightbulb {
+    grid-area:main7;
+    background-image: url(lightbulbtiny.png);
+    background-size: cover;
+    background-position: center;
+    height: 150px;
+    width: 150px;
+    margin-top: 2em;
+    border-radius: 50px;
+    background-color: rgb(68, 39, 79);
+    box-shadow: 0 0 15px 15px rgb(68, 39, 79);
+    opacity: .8;
+}
+
+/*==============
+    SKILLS
+==============*/
+
+.hard {
+    grid-area: soft;
+}
+
+.soft {
+    grid-area: hard;
+}
+
+.hard,
+.soft {
+    border-top: 3px solid rgb(99, 0, 106);
+    border-bottom: 3px solid rgb(99, 0, 106);
+    box-shadow: 0 0 50px 15px black inset, 0 0 30px rgb(76, 2, 250);
+}
+
+.skill-title {
+    margin-bottom: 1em;
+    padding-top: .5em;
+}
+
+
+/*=================
+   EMPLOYMENT
+=================*/
+
+.employment {
+    grid-area: table;
+    display: flex;
+    flex-direction: column;
+    font-family: "Maven Pro", sans-serif;
+    font-size: 1.1rem;
+    margin-top: 5em;
+    margin-bottom: 5em;
+}
+
+th {
+    padding: 1em;
+    border-bottom: 1px solid rgb(99, 0, 106);
+    font-size: 1.2em;
+    letter-spacing: .1em;
+    background-image: radial-gradient(transparent,rgb(81, 20, 103),rgb(1, 1, 114));
+}
+
+td {
+    border-right: 1px solid rgb(99, 0, 106);
+    padding: 15px;
+    background-image: radial-gradient(transparent,rgb(32, 13, 56));
+}
+
+.previous {
+    display: flex;
+    justify-content: center;
+    padding-top: .1em;
+    font-size: 3rem;
+    font-family: auto;
+    letter-spacing: .2em;
+    border-top: 1px solid rgb(99, 0, 106);
+    border-bottom: 1px solid rgb(99, 0, 106);
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    color: rgb(123, 255, 226);
+    font-weight: 100;
+}
+
+.company {
+    font-weight: 600;
+    border-left: 1px solid rgb(99, 0, 106);
+}
+
+
+
+//rotating cube//
+
+.cube-container {
+    width: 50vw;
+    height: 50vh;
+    text-align: center;
+    perspective: 100em;    
+    
+}
+
+.cube {
+    width: 100%;
+    height: 21%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition-duration: 2s;
+    border: 5px solid transparent;  
+    margin-top:70%; 
+    
+}
+
+.cube-side {
+    position: absolute;
+    width: 100%;
+    height: 500%;
+    background-color: white;
+    border: 1px solid white;
+    background-position: center;
+    background-size: cover;
+    border: 4px solid lime;
+}
+
+.cube-side:nth-child(1){
+    transform: rotateY(0deg) translateZ(6em);
+    background-image: var(--image-1);
+}
+
+.cube-side:nth-child(2){
+    transform: rotateY(90deg) translateZ(6em);
+    background-image: var(--image-2);
+}
+
+.cube-side:nth-child(3){
+    transform: rotateY(180deg) translateZ(6em);
+    background-image: var(--image-3);
+}
+
+.cube-side:nth-child(4){
+    transform: rotateY(-90deg) translateZ(6em);
+    background-image: var(--image-4);
+}
+
+.cube-side:nth-child(5){
+    transform: rotateX(90deg) translateZ(5.75em);
+    background-image: var(--image-5);
+    border-top: 8px solid lime;
+    border-bottom: 8px solid lime;
+}
+
+.cube-side:nth-child(6){
+    transform: rotateX(-90deg) translateZ(5.3em);
+    background-image: var(--image-6);
+    border-top: 8px solid lime;
+    border-bottom: 8px solid lime;
+}
+
+
+///cube radio buttons//
+.radio-button {
+    transform: translateX(-50px);
+}
+
+
+.radio-button:checked ~ .cube{
+    transition-duration: 3s;
+    transition-timing-function: cubic-bezier(0.19. 1, 0.22, 1);
+}
+
+.radio-button:nth-child(1):checked ~ .cube {
+    transform: rotateX(-15deg) rotateY(20deg);
+}
+
+.radio-button:nth-child(2):checked ~ .cube {
+    transform: rotateX(-15deg) rotateY(180deg);
+}
+
+.radio-button:nth-child(3):checked ~ .cube {
+    transform: rotateX(-15deg) rotateY(90deg);
+}
+
+.radio-button:nth-child(4):checked ~ .cube {
+    transform: rotateX(-15deg) rotateY(-90deg);
+}
+
+.radio-button:nth-child(5):checked ~ .cube {
+    transform: rotateX(-105deg) rotateY(0deg);
+}
+
+.radio-button:nth-child(6):checked ~ .cube {
+    transform: rotateX(75deg) rotateY(0deg);
+}
+
